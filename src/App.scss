@@ -1,0 +1,80 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+* {
+    outline: 1px solid red;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    display: grid;
+
+    grid-template-areas:
+        "exp exp exp exp"
+        "io  io  io  io"
+        "ac  ac  .   ."
+        ".   .   .   ."
+        ".   .   .   ."
+        ".   .   .   eq"
+        "n0  n0  .   eq";
+
+    grid-gap: 1px;
+    padding: 5px;
+    background-color: black;
+
+    div {
+        min-height: 2em;
+        min-width: 2em;
+        color: white;
+        font-size: 2em;
+
+        &.exp {
+            grid-area: exp;
+
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        &.io {
+            grid-area: io;
+
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        &.ac {
+            grid-area: ac;
+        }
+
+        &.eq {
+            grid-area: eq;
+        }
+
+        &.n0 {
+            grid-area: n0;
+        }
+
+        >button {
+            min-height: 100%;
+            min-width: 100%;
+        }
+    }
+}

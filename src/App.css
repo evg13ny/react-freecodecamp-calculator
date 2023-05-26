@@ -1,85 +1,62 @@
-/*.App {
-  text-align: center;
-}*/
+html {
+  box-sizing: border-box;
+}
 
-.container {
-  padding-top: 100px;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+  outline: 1px solid red;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.grid {
+.calculator {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas:
-    'dis dis dis dis'
-    'AC C div times'
-    'seven eight nine minus'
-    'four five six plus'
-    'one two three equal'
-    'zero zero dot equal'
-  ;
+  grid-template-areas: "exp exp exp exp" "io  io  io  io" "ac  ac  .   ." ".   .   .   ." ".   .   .   ." ".   .   .   eq" "n0  n0  .   eq";
+  grid-gap: 1px;
+  padding: 5px;
+  background-color: black;
 }
-
-.padButton {
+.calculator div {
+  min-height: 2em;
+  min-width: 2em;
+  color: white;
+  font-size: 2em;
+}
+.calculator div.exp {
+  grid-area: exp;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 40px;
-  background-color: gray;
-  color: white;
-  border: 1px solid black;
-  cursor: pointer;
-  font-size: 20px;
+  justify-content: flex-end;
 }
-
-.padButton:hover {
-  border: 1px solid white;
-  color: #ccc;
+.calculator div.io {
+  grid-area: io;
+  display: flex;
+  justify-content: flex-end;
 }
-
-.dis {
-  grid-area: dis;
-  background-color: black;
-  text-align: right;
-  font-size: 20px;
+.calculator div.ac {
+  grid-area: ac;
 }
-
-.dis input {
-  width: 90%;
-  color: white;
-  padding: 5px 20px;
-  text-align: right;
-  background-color: black;
+.calculator div.eq {
+  grid-area: eq;
 }
-
-input::placeholder {
-  color: white;
+.calculator div.n0 {
+  grid-area: n0;
 }
-
-.zero {
-  grid-area: zero;
-}
-
-.equal {
-  grid-area: equal;
-}
-
-.dark-gray {
-  background-color: #333;
-}
-
-.tomato {
-  background-color: tomato;
-}
-
-.blue {
-  background-color: #5599ff;
-}
-
-.total {
-  padding: 5px 20px;
-  color: yellow;
-}
+.calculator div > button {
+  min-height: 100%;
+  min-width: 100%;
+}/*# sourceMappingURL=App.css.map */
