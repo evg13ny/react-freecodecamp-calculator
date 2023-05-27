@@ -30,6 +30,8 @@ const Calculator = () => {
 
     if (operator !== '-') {
       wcExp = wcExp.replace(/[*\/+-]+$/, '');
+    } else if (operator === '-' && wcExp.endsWith('-')) {
+      return;
     }
 
     setExp(wcExp + operator);
@@ -59,6 +61,10 @@ const Calculator = () => {
     }
 
     if (digit === '.') {
+      if (wcIO.includes('.')) {
+        return;
+      }
+
       if (wcIO === '') {
         wcIO = '0';
       }
@@ -75,6 +81,8 @@ const Calculator = () => {
   const solve = () => {
     let wcExp = exp;
 
+    wcExp = wcExp.replace(/[*\/+-]+$/, '');
+
     const answer = eval(wcExp).toString();
 
     setExp(wcExp + '=' + answer);
@@ -85,57 +93,57 @@ const Calculator = () => {
   return (
     <div className='calculator'>
       <div className='exp'>{exp}</div>
-      <div className='io'>{io}</div>
+      <div className='io' id='display'>{io}</div>
       <div className='ac'>
-        <button onClick={clear}>AC</button>
+        <button onClick={clear} id='clear'>AC</button>
       </div>
       <div className='d'>
-        <button onClick={() => op('/')}>/</button>
+        <button onClick={() => op('/')} id='divide'>/</button>
       </div>
       <div className='m'>
-        <button onClick={() => op('*')}>X</button>
+        <button onClick={() => op('*')} id='multiply'>X</button>
       </div>
       <div className='n7'>
-        <button onClick={() => n('7')}>7</button>
+        <button onClick={() => n('7')} id='seven'>7</button>
       </div>
       <div className='n8'>
-        <button onClick={() => n('8')}>8</button>
+        <button onClick={() => n('8')} id='eight'>8</button>
       </div>
       <div className='n9'>
-        <button onClick={() => n('9')}>9</button>
+        <button onClick={() => n('9')} id='nine'>9</button>
       </div>
       <div className='s'>
-        <button onClick={() => op('-')}>-</button>
+        <button onClick={() => op('-')} id='subtract'>-</button>
       </div>
       <div className='n4'>
-        <button onClick={() => n('4')}>4</button>
+        <button onClick={() => n('4')} id='four'>4</button>
       </div>
       <div className='n5'>
-        <button onClick={() => n('5')}>5</button>
+        <button onClick={() => n('5')} id='five'>5</button>
       </div>
       <div className='n6'>
-        <button onClick={() => n('6')}>6</button>
+        <button onClick={() => n('6')} id='six'>6</button>
       </div>
       <div className='a'>
-        <button onClick={() => op('+')}>+</button>
+        <button onClick={() => op('+')} id='add'>+</button>
       </div>
       <div className='n1'>
-        <button onClick={() => n('1')}>1</button>
+        <button onClick={() => n('1')} id='one'>1</button>
       </div>
       <div className='n2'>
-        <button onClick={() => n('2')}>2</button>
+        <button onClick={() => n('2')} id='two'>2</button>
       </div>
       <div className='n3'>
-        <button onClick={() => n('3')}>3</button>
+        <button onClick={() => n('3')} id='three'>3</button>
       </div>
       <div className='eq'>
-        <button onClick={solve}>=</button>
+        <button onClick={solve} id='equals'>=</button>
       </div>
       <div className='n0'>
-        <button onClick={() => n('0')}>0</button>
+        <button onClick={() => n('0')} id='zero'>0</button>
       </div>
       <div className='dec'>
-        <button onClick={() => n('.')}>.</button>
+        <button onClick={() => n('.')} id='decimal'>.</button>
       </div>
     </div>
   );

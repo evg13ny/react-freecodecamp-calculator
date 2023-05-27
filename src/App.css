@@ -8,6 +8,10 @@ html {
   box-sizing: inherit;
 }
 
+* {
+  font-family: "Share Tech Mono", monospace;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -18,6 +22,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .calculator {
@@ -38,7 +43,6 @@ body {
   grid-area: exp;
   min-height: 1em;
   font-size: calc(var(--font-size) * 0.5);
-  font-family: "Share Tech Mono", monospace;
   color: orange;
   display: flex;
   justify-content: flex-end;
@@ -47,7 +51,6 @@ body {
 .calculator > div.io {
   grid-area: io;
   min-height: 1em;
-  font-family: "Share Tech Mono", monospace;
   display: flex;
   justify-content: flex-end;
 }
