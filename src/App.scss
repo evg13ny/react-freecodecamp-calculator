@@ -17,7 +17,7 @@ body {
     padding: 0;
 }
 
-#app {
+.App {
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -27,19 +27,17 @@ body {
 
 .calculator {
     display: grid;
-
+    grid-gap: 1px;
+    padding: 5px;
+    background-color: black;
     grid-template-areas:
         "exp exp exp exp"
-        "io  io  io  io"
+        "res res res res"
         "ac  ac  .   ."
         ".   .   .   ."
         ".   .   .   ."
         ".   .   .   eq"
         "n0  n0  .   eq";
-
-    grid-gap: 1px;
-    padding: 5px;
-    background-color: black;
 
     > div {
         --font-size: 2em;
@@ -47,38 +45,32 @@ body {
         min-height: var(--font-size);
         min-width: var(--font-size);
         color: white;
-
         font-size: var(--font-size);
 
         &.exp {
             grid-area: exp;
             min-height: 1em;
             font-size: calc(var(--font-size) * 0.5);
-
             color: orange;
-
             display: flex;
             justify-content: flex-end;
             align-items: center;
         }
 
-        &.io {
-            grid-area: io;
+        &.res {
+            grid-area: res;
             min-height: 1em;
-
             display: flex;
             justify-content: flex-end;
         }
 
         &.ac {
             grid-area: ac;
-
             background-color: rgb(172, 57, 57);
         }
 
-        &.eq {
+        &.equals {
             grid-area: eq;
-
             background-color: rgb(0, 68, 102);
         }
 
@@ -87,14 +79,14 @@ body {
         }
 
         &[class^="n"],
-        &.dec {
+        &.decimal {
             background-color: #4d4d4d;
         }
 
-        &.m,
-        &.d,
-        &.s,
-        &.a {
+        &.multiply,
+        &.divide,
+        &.subtract,
+        &.add {
             background-color: rgb(102, 102, 102);
         }
 
@@ -105,7 +97,6 @@ body {
             background-color: inherit;
             border: none;
             outline: none;
-
             font-size: calc(var(--font-size) * 0.5);
 
             &:hover {

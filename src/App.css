@@ -17,7 +17,7 @@ body {
   padding: 0;
 }
 
-#app {
+.App {
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -27,10 +27,10 @@ body {
 
 .calculator {
   display: grid;
-  grid-template-areas: "exp exp exp exp" "io  io  io  io" "ac  ac  .   ." ".   .   .   ." ".   .   .   ." ".   .   .   eq" "n0  n0  .   eq";
   grid-gap: 1px;
   padding: 5px;
   background-color: black;
+  grid-template-areas: "exp exp exp exp" "res res res res" "ac  ac  .   ." ".   .   .   ." ".   .   .   ." ".   .   .   eq" "n0  n0  .   eq";
 }
 .calculator > div {
   --font-size: 2em;
@@ -48,8 +48,8 @@ body {
   justify-content: flex-end;
   align-items: center;
 }
-.calculator > div.io {
-  grid-area: io;
+.calculator > div.res {
+  grid-area: res;
   min-height: 1em;
   display: flex;
   justify-content: flex-end;
@@ -58,17 +58,17 @@ body {
   grid-area: ac;
   background-color: rgb(172, 57, 57);
 }
-.calculator > div.eq {
+.calculator > div.equals {
   grid-area: eq;
   background-color: rgb(0, 68, 102);
 }
 .calculator > div.n0 {
   grid-area: n0;
 }
-.calculator > div[class^=n], .calculator > div.dec {
+.calculator > div[class^=n], .calculator > div.decimal {
   background-color: #4d4d4d;
 }
-.calculator > div.m, .calculator > div.d, .calculator > div.s, .calculator > div.a {
+.calculator > div.multiply, .calculator > div.divide, .calculator > div.subtract, .calculator > div.add {
   background-color: rgb(102, 102, 102);
 }
 .calculator > div > button {
