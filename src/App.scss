@@ -8,10 +8,6 @@ html {
     box-sizing: inherit;
 }
 
-* {
-    outline: 1px solid red;
-}
-
 body {
     margin: 0;
     padding: 0;
@@ -40,21 +36,31 @@ body {
     padding: 5px;
     background-color: black;
 
-    div {
-        min-height: 2em;
-        min-width: 2em;
+    > div {
+        --font-size: 2em;
+
+        min-height: var(--font-size);
+        min-width: var(--font-size);
         color: white;
-        font-size: 2em;
+
+        font-size: var(--font-size);
 
         &.exp {
             grid-area: exp;
+            min-height: 1em;
+            font-size: calc(var(--font-size) * 0.5);
+            font-family: "Share Tech Mono", monospace;
+            color: orange;
 
             display: flex;
             justify-content: flex-end;
+            align-items: center;
         }
 
         &.io {
             grid-area: io;
+            min-height: 1em;
+            font-family: "Share Tech Mono", monospace;
 
             display: flex;
             justify-content: flex-end;
@@ -62,19 +68,47 @@ body {
 
         &.ac {
             grid-area: ac;
+
+            background-color: rgb(172, 57, 57);
         }
 
         &.eq {
             grid-area: eq;
+
+            background-color: rgb(0, 68, 102);
         }
 
         &.n0 {
             grid-area: n0;
         }
 
-        >button {
+        &[class^="n"],
+        &.dec {
+            background-color: #4d4d4d;
+        }
+
+        &.m,
+        &.d,
+        &.s,
+        &.a {
+            background-color: rgb(102, 102, 102);
+        }
+
+        > button {
             min-height: 100%;
             min-width: 100%;
+            color: white;
+            background-color: inherit;
+            border: none;
+            outline: none;
+
+            font-size: calc(var(--font-size) * 0.5);
+
+            &:hover {
+                border: 1px solid white;
+                transform: scale(1.02);
+                color: black;
+            }
         }
     }
 }

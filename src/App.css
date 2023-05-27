@@ -8,10 +8,6 @@ html {
   box-sizing: inherit;
 }
 
-* {
-  outline: 1px solid red;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -31,32 +27,58 @@ body {
   padding: 5px;
   background-color: black;
 }
-.calculator div {
-  min-height: 2em;
-  min-width: 2em;
+.calculator > div {
+  --font-size: 2em;
+  min-height: var(--font-size);
+  min-width: var(--font-size);
   color: white;
-  font-size: 2em;
+  font-size: var(--font-size);
 }
-.calculator div.exp {
+.calculator > div.exp {
   grid-area: exp;
+  min-height: 1em;
+  font-size: calc(var(--font-size) * 0.5);
+  font-family: "Share Tech Mono", monospace;
+  color: orange;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
-.calculator div.io {
+.calculator > div.io {
   grid-area: io;
+  min-height: 1em;
+  font-family: "Share Tech Mono", monospace;
   display: flex;
   justify-content: flex-end;
 }
-.calculator div.ac {
+.calculator > div.ac {
   grid-area: ac;
+  background-color: rgb(172, 57, 57);
 }
-.calculator div.eq {
+.calculator > div.eq {
   grid-area: eq;
+  background-color: rgb(0, 68, 102);
 }
-.calculator div.n0 {
+.calculator > div.n0 {
   grid-area: n0;
 }
-.calculator div > button {
+.calculator > div[class^=n], .calculator > div.dec {
+  background-color: #4d4d4d;
+}
+.calculator > div.m, .calculator > div.d, .calculator > div.s, .calculator > div.a {
+  background-color: rgb(102, 102, 102);
+}
+.calculator > div > button {
   min-height: 100%;
   min-width: 100%;
+  color: white;
+  background-color: inherit;
+  border: none;
+  outline: none;
+  font-size: calc(var(--font-size) * 0.5);
+}
+.calculator > div > button:hover {
+  border: 1px solid white;
+  transform: scale(1.02);
+  color: black;
 }/*# sourceMappingURL=App.css.map */
