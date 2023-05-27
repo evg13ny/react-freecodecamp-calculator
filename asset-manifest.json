@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-freecodecamp-calculator/static/css/main.59a0af66.css",
+    "main.js": "/react-freecodecamp-calculator/static/js/main.882140fa.js",
+    "index.html": "/react-freecodecamp-calculator/index.html",
+    "main.59a0af66.css.map": "/react-freecodecamp-calculator/static/css/main.59a0af66.css.map",
+    "main.882140fa.js.map": "/react-freecodecamp-calculator/static/js/main.882140fa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.59a0af66.css",
+    "static/js/main.882140fa.js"
+  ]
+}
